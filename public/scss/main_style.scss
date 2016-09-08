@@ -1,0 +1,735 @@
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+		    /*@media only screen and (max-width : 1200px) {
+
+		    	}*/
+
+		    	/* Medium Devices, Desktops */
+		    /*@media only screen and (max-width : 992px) {
+
+		    	}*/
+
+		    	/* Small Devices, Tablets */
+		    /*@media only screen and (max-width : 768px) {
+
+		    	}*/
+
+		    	/* Extra Small Devices, Phones */ 
+		    /*@media only screen and (max-width : 480px) {
+
+		    	}*/
+
+		    	/* Custom, iPhone Retina */ 
+		    /*@media only screen and (max-width : 320px) {
+		        
+		    	}*/
+
+
+		    	// - - - - - - - - - - - Global Styles - - - - - - - - - - //
+
+		    	$break-iPhone: 320px;
+		    	$break-xtrasmall: 480px;
+		    	$break-tablets: 768px;
+		    	$break-medium: 992px;
+		    	$break-large: 1200px;
+
+		    	@font-face {
+		    		font-family: "Brandon";
+		    		font-style: normal;
+		    		font-weight: normal;
+		    		src: local("?"), url("../fonts/Brandon Grotesque Regular.woff") format("woff"), url("/fonts/fBrandon Grotesque Regular.ttf") format("truetype");
+		    	}
+
+		    	@font-face {
+		    		font-family: "Brandon";
+		    		font-style: normal;
+		    		font-weight: bold;
+		    		src: local("?"), url("../fonts/Brandon Grotesque Bold.woff") format("woff"), url("/fonts/fBrandon Grotesque Bold.ttf") format("truetype");
+		    	}
+
+		    	@-webkit-keyframes pulsate {
+		    		0% {-webkit-transform: scale(1, 1);opacity: 1;}
+		    		50% {-webkit-transform: scale(0.8, 0.8);}
+		    		100% {-webkit-transform: scale(1, 1);opacity: 1;}
+		    	}
+
+		    	$white: #FFFFFF;
+		    	$lightgrey: #ece3fc;
+		    	$highlight: #07DA73; 
+		    	$gold: #FFD800;
+		    	$lightblue: #385979;
+		    	$darkblue: #1C2732;
+		    	$darkestblue: #0F171F;
+		    	$transparent: rgba(0,0,0,0.4);
+		    	$transparent-dark: rgba(0,0,0,0.7);
+
+		    	* {
+		    		-webkit-box-sizing: border-box;
+		    		box-sizing: border-box;
+		    	}
+
+		    	html {	
+		    		font-size: 16px !important;
+		    	}
+
+		    	body {
+		    		font-family: "Brandon";
+		    		font-size: 16px !important;
+		    		position: relative;
+		    		height: 100%;
+		    		overflow-y: scroll;
+		    	}
+
+		    	body, ul, h1, h2 {
+		    		margin: 0;
+		    		padding: 0;
+		    	}
+
+		    	h1 {
+		    		font-size: 3rem;
+		    	}
+
+		    	a {
+		    		color: $highlight;
+		    		transition: all .2s;
+		    		&:hover {
+		    			opacity: 0.8;
+		    			text-decoration: none;
+		    		}
+		    	}
+
+		    	blockquote {
+		    		margin: 0;
+		    		padding: 0px 20px;
+		    		border-left: 5px solid $lightblue;
+		    	}
+
+		    	hr {
+		    		border-top: 1px solid $lightblue;
+		    	}
+
+		    	.cf:after,
+		    	.cf:before {
+		    		content: " ";
+		    		display: table;
+		    	}
+
+		    	.cf:after {
+		    		clear: both;
+		    	}
+
+		    	.btn {
+		    		transition: all .2s;
+		    		border-radius: 3rem;
+		    		&:hover {
+		    			opacity: .8;
+		    		}
+		    		&:focus {
+		    			outline: 0;
+		    			outline-offset: -2px;
+		    		}
+		    		&:active:focus {
+		    			outline: 0;
+		    			outline-offset: -2px;
+		    		}
+		    	}
+
+		    	.btn-sm {
+		    		padding: 0.5rem 1rem 0.1rem 1rem;
+		    	}
+
+
+		    	.btn-md {
+		    		padding: 0.7rem 1.5rem 0.5rem 1.5rem;
+		    		font-size: 1.2rem;
+		    	}
+
+		    	.btn-lg {
+		    		padding: 0.6rem 4rem 0.4rem 4rem;	
+		    		font-size: 1.4rem;
+		    	}
+
+		    	.btn-highlight {
+		    		background-color: $highlight;
+		    		font-weight: bold;
+		    		color: $white;
+		    	}
+
+		    	.btn_transparent{
+		    		background-color: $transparent;
+		    	}
+
+		    	.form-control {
+		    		font-size: 1.2rem;
+		    		border-radius: 4px;
+		    		background-color: rgba(7,218,115,.1);
+		    		color: $lightblue;
+		    		padding-bottom: 3px;
+		    		border-radius: 0;
+		    		&:focus {
+		    			border-color: $highlight;
+		    			outline: 0;
+		    			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(7,218,115,.6);
+		    			box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(7,218,115,.6);
+		    		}
+		    	}
+
+		    	.alert {
+		    		position: absolute;
+		    		width: 100%;
+		    		top: 45vh;
+		    		padding: 15px;
+		    		margin: 0 auto;
+		    		border: 1px solid transparent;
+		    		border-radius: 4px;
+		    	}
+
+		    	.modal {
+		    		text-align: center;
+		    		padding: 0!important;
+		    		&:before {
+		    			content: '';
+		    			display: inline-block;
+		    			height: 100%;
+		    			vertical-align: middle;
+		    			margin-right: -4px;
+		    		}
+		    		.modal-dialog {
+		    			display: inline-block;
+		    			text-align: left;
+		    			vertical-align: middle;
+		    		}
+		    		.modal-content {
+		    			background-color: $lightgrey;
+		    			border-radius: 4px;
+		    			border-radius: 0;
+		    			.modal-header {
+		    				border: none;
+		    				#myModalLabel {
+		    					padding-top: 40px;
+		    				}
+		    			}
+		    			.buttons{
+		    				padding-top: 30px;
+		    				padding-bottom: 20px;
+		    				button {
+		    					margin-left: 30px;
+		    				}
+		    			}
+		    			h2, label{
+		    				color: $darkblue;
+		    			}
+		    		}
+		    	}
+
+		    	.mobile-separator {
+		    		width: 100%;
+		    		height: 30px;
+		    		background-color: $darkblue;
+		    	}
+
+
+
+		    	// - - - - - - - - - - - Navbar Styles - - - - - - - - - - //
+
+		    	.navbar {
+		    		transition: all .5s;
+		    		z-index: 100;
+		    		margin-bottom: -80px;
+		    		padding-top: 5px;
+		    		@media screen and (max-width: $break-iPhone) {
+		    			padding-top: 0px;				
+		    		}
+		    		.navbar-toggle {
+		    			margin-top: 6px;
+		    			border-radius: 0;
+		    			&:hover {
+		    				background-color: $darkblue;		    				
+		    			}
+		    		}
+		    		.navbar-brand {
+		    			width:17.2rem;
+		    			float: left;
+		    			margin-top: -0.5rem;
+		    			@media screen and (max-width: $break-xtrasmall) {
+		    				margin-top: 0;
+		    				width: 12rem;
+		    			}
+		    			img {
+		    				width: 17.2rem;
+		    				@media screen and (max-width: $break-xtrasmall) {
+		    					width: 12rem;
+		    				}
+		    				&:hover {
+		    					opacity: 0.7;
+		    				}
+		    			}
+		    		}
+		    		&.navbar-default {
+		    			background-color: transparent;
+		    			border: none;
+		    			border-radius: 0;
+		    			.navbar-nav{
+		    				font-size: 1.2rem;
+		    				font-weight: normal;
+		    				&>li>a {
+		    					padding: 15px 12px 12px 12px;
+		    					color: $white;
+		    					transition: color .2s;
+		    					@media screen and (max-width: $break-iPhone) {
+		    						text-shadow: 1px 1px 1px black;
+		    					}
+		    				}
+		    				& a:hover{
+		    					color: $gold;
+		    				} 
+		    				&>.active>a{
+		    					background-color: transparent;
+		    					color: $highlight;
+		    				}
+		    				&>.active>a:hover{
+		    					color: $highlight;
+		    				} 
+		    				&>.open>a{
+		    					background-color: transparent;
+		    					color: $lightgrey;
+		    				}
+		    				&>.open>a{
+		    					color: $lightgrey;
+		    				}
+		    			}
+		    			.navbar-collapse {
+		    				@media screen and (max-width: $break-xtrasmall) {
+		    					background-color: $darkestblue;
+		    					box-shadow: 0 2px 3px black;
+		    				}
+		    			}
+		    			.dropdown-menu {
+		    				background-color: #52595F;
+		    				text-align: right;
+		    				border-radius: 0;
+		    				&>li>a{
+		    					font-weight: normal;					
+		    					font-size: 1rem;
+		    					color: $white;
+		    				}
+		    				&>li>a:hover{
+		    					color: $white;
+		    					background-color: $darkblue;
+		    				}
+		    			}
+		    		}
+		    	}
+
+		    	.nav-transparency {
+		    		background-color: rgba(15,23,31,1) !important;
+		    		box-shadow: 0 2px 2px rgba(15,23,31,0.5);
+		    	}
+
+
+
+		    	// - - - - - - - - - - - Banner Styles - - - - - - - - - - //
+
+		    	#banner {
+		    		.jumbotron {
+		    			background-image: url(../images/home/banner-background.jpg);
+		    			background-attachment: fixed;
+		    			background-repeat: no-repeat;
+		    			background-size: cover;	
+		    			text-align: center;
+		    			padding-top: 13rem;
+		    			@media screen and (max-width: $break-tablets) {
+		    				padding-top: 24vh;
+		    			}
+		    			@media screen and (max-width: $break-xtrasmall) {
+		    				padding-top: 14vh;
+		    			}
+		    			margin:0;
+		    			min-height: 100vh;
+		    			.title{
+		    				font-weight: bold;
+		    				color: $white;
+		    			}
+		    			.sub_title {
+		    				margin-top: 2.5rem;
+		    				margin-left: auto;
+		    				margin-right: auto;
+		    				max-width: 80%;
+		    				color: $white;
+		    				line-height: 2.5rem;
+		    				@media screen and (max-width: $break-iPhone) {
+		    					font-size: 1.5rem;
+		    					line-height: 2rem;
+		    				}
+		    			}
+		    			.btn {
+		    				margin-top: 3.5rem;
+		    			}
+		    			.godown {
+		    				margin-top: 3.5rem;
+		    				opacity: 1;
+		    				@media screen and (max-width: $break-iPhone) {
+		    					margin-top: 2rem;
+		    				}
+		    				img {
+		    					cursor:default;
+		    					width: 2rem;
+		    					-webkit-animation: pulsate 2s ease-out;
+		    					-webkit-animation-iteration-count: infinite; 
+		    					opacity: 0.0
+		    				}
+		    			}
+		    		}
+		    	}
+
+		    	// - - - - - - - - - - - Box Styles - - - - - - - - - - //
+
+		    	#services {
+		    		background-color: $lightgrey;
+		    		padding: 2rem 0 2rem 0;
+		    		position: relative;
+		    		min-height: 100%;
+		    		box-shadow: 0 -15px 20px 0px $darkblue;
+		    		.service{
+		    			position: relative;
+		    			margin: -8rem 0 0 0;
+		    			padding: 2.5rem 3rem 2rem 3rem;
+		    			text-align: center;
+		    			background-color: $white;
+		    			box-shadow: 0 0 40px 5px rgba(0,0,0,0.9);
+		    			@media screen and (max-width: $break-tablets) {
+		    				margin: 30px 0 2rem;
+		    				box-shadow: none;				
+		    			}
+		    			h2 {
+		    				font-size: 1.6em;
+		    				color: $darkblue;
+		    				font-weight: bold;
+		    			}
+		    			p {
+		    				padding-top: 1.5rem;
+		    				padding-bottom: 1rem;
+		    				line-height: 1.6rem;
+		    				color: $lightblue;
+		    			}
+		    			a {
+		    				text-align: center;
+		    				text-decoration: none;
+		    			}
+		    		}
+		    	}
+
+		    	// - - - - - - - - - - - Services Styles - - - - - - - - - - //
+
+		    	#banner2{
+		    		padding-top: 80px;
+		    		background-color: $lightgrey;
+		    		@media screen and (max-width: $break-xtrasmall) {
+		    		}
+		    		.jumbotron {
+		    			padding: 0rem 0 1rem 0;
+		    			background-color: $lightgrey;
+		    			margin:0;
+		    		}
+		    		.main-title{
+		    			font-weight: bold;
+		    			color: $darkestblue;
+		    			text-align: center;
+		    			margin-bottom: 4rem;
+		    			@media screen and (max-width: $break-medium) {
+		    				font-size: 2rem;
+		    			}
+		    		}
+		    		.title{
+		    			font-weight: bold;
+		    			color: $darkestblue;
+		    			text-align: center;
+		    			margin-bottom: 1rem;
+		    			@media screen and (max-width: $break-xtrasmall) {
+		    				font-size: 1.3rem;
+		    			}
+		    		}
+		    		.description {
+		    			margin-bottom: 4rem;
+
+		    			.title{
+		    				font-weight: bold;
+		    				color: $darkblue;
+		    				line-height: 0.8rem;
+		    				text-align: left;
+		    			}
+		    			.fa-stack-1x {
+		    				color: $highlight;
+		    				top: -2px;
+		    				font-size: 2rem;
+		    				@media screen and (max-width: $break-xtrasmall) {
+		    					font-size: 1.6rem;
+		    					top: -1px;
+		    					left: 1px;
+		    				}
+		    			}
+		    			.well{
+		    				border-radius: 0;
+		    				border: none;
+		    				box-shadow: 0px 8px 3px -8px $darkblue;
+		    				blockquote {
+		    					border-color: $lightblue;
+		    					line-height: 2.2rem;
+		    					@media screen and (max-width: $break-medium) {
+		    						font-size: 1rem !important;
+		    						line-height: 1.7rem;
+		    					}
+		    				}
+		    			}
+		    			.sub_title {
+		    				color: $lightblue;
+		    				line-height: 1.8rem;
+		    				-ms-text-align-last: auto;
+		    				text-align: justify;
+		    				text-justify: distribute;
+		    			}
+		    		}
+		    	}
+
+		    	// - - - - - - - - - - Opinions Style - - - - - - - //
+		    	#opinions {
+		    		background-color: $darkblue;
+		    		padding: 3rem 5rem 2rem 5rem;
+		    		text-align: center;
+		    		@media screen and (max-width: $break-medium) {
+		    			padding: 3rem 0 0 0;
+		    		}
+		    		.title {
+		    			font-weight: bold;
+		    			padding: 2rem 0 0rem 0;
+		    			color: $white;
+		    			@media screen and (max-width: $break-medium) {
+		    				font-size: 2rem;
+		    			}
+		    		}
+		    		.sub_title {
+		    			color: $white;
+		    			padding: 1.3rem 20rem 3rem 20rem;
+		    			font-weight: normal;
+		    			line-height: 2.5rem;
+		    			@media screen and (max-width: $break-tablets) {
+		    				padding: 1.3rem 0 3rem 0;
+		    				font-size: 1.2rem;
+		    				line-height: 2rem;
+		    			}
+		    		}
+		    		.btn {
+		    			margin-top: 3rem;
+		    			@media screen and (max-width: $break-tablets) {
+		    				margin-bottom: 3rem;
+		    			}
+		    		}
+		    		.main-carousel{
+
+		    			.carousel-cell {
+		    				width: 34%;
+		    				/* flex-box, center image in cell */
+		    				display: -webkit-box;
+		    				display: -webkit-flex;
+		    				display:         flex;
+		    				-webkit-box-pack: center;
+		    				-webkit-justify-content: center;
+		    				justify-content: center;
+		    				-webkit-align-items: center;
+		    				align-items: center;
+		    				@media screen and (max-width: $break-tablets) {
+		    					width: 100%;
+		    				}
+		    			}
+		    			.carousel-cell .opinion {
+		    				display: block;
+		    				max-width: 100%;
+		    				max-height: 100%;
+		    				/* dim unselected */
+		    				opacity: 0.7;
+		    				transform: scale(0.8) translate(0px, 100px);
+		    				filter: blur(2px);
+		    				transition: opacity 0.3s, transform 0.3s, filter 0.3s;
+		    			}
+		    			.carousel-cell.is-selected .opinion{
+		    				opacity: 1;
+		    				-webkit-transform: scale(1) translate(0px, 0px);
+		    				transform: scale(1) translate(0px, 0px);
+		    				-webkit-filter: none;
+		    				filter: none;
+		    			}
+		    		}
+		    		.opinion {
+		    			background-color: $white;
+		    			width: 100%;
+		    			height: 330px;
+		    			overflow: hidden;
+		    			margin: 1rem 1% 0 1%;
+		    			border-radius: 0px;
+		    			box-shadow: 0 0 59px rgba(0,0,0,0.4);
+		    			@media screen and (max-width: $break-xtrasmall) {
+		    				height: 390px;
+		    			}
+		    			@media screen and (max-width: $break-iPhone) {
+		    				height: 450px;
+		    			}
+		    			.heading{
+		    				width: 100%;
+		    				margin: -1.5rem 0 0 0;
+		    				height: 5rem;
+		    				background-color: $lightblue;
+		    				-webkit-transform: skew(-0deg, -3deg);
+		    				box-shadow: 0 2px 3px $darkestblue;
+		    			}
+		    			.stars {
+		    				width: 100%;
+		    				color: $gold;
+		    				font-size: 2rem;
+		    				text-align: center;
+		    				padding: 2.1rem 0;
+		    				-webkit-transform: skew(0deg, 4deg);
+		    				text-shadow: 0 0 2px $gold;
+		    			}
+		    			.body {
+		    				padding: 2.5rem 3rem 3rem 3rem;
+		    				color: $lightblue;
+		    				p {
+		    					text-align: justify;
+		    					font-size: 0.95rem;
+		    				}
+		    				.author {
+		    					font-style: italic;
+		    					text-align: center;
+		    				}
+		    			}
+		    		}
+		    	}
+
+		    	// - - - - - - - - - - - Email Form Styles - - - - - - - - //
+		    	#mailform {
+		    		.jumbotron {
+		    			margin: 0;
+		    			background-color: $lightgrey;
+		    			text-align: center;
+		    			.title {
+		    				font-weight: bold;
+		    				padding: 2rem 0 0rem 0;
+		    				@media screen and (max-width: $break-medium) {
+		    					font-size: 2rem;
+		    				}
+		    			}
+		    			.sub_title {
+		    				padding: 1.3rem 20rem 3rem 20rem;
+		    				font-weight: normal;
+		    				line-height: 2.5rem;
+		    				@media screen and (max-width: $break-tablets) {
+		    					padding: 1.3rem 0 3rem 0;
+		    					font-size: 1.2rem;
+		    					line-height: 2rem;
+		    				}
+		    			}
+		    			.form {
+		    				#button {
+		    					padding: 2rem 0;
+		    				}
+		    			}
+		    		}
+		    	}
+
+		    	// - - - - - - - - - - - Footer Styles - - - - - - - - - - //
+
+		    	footer {
+		    		text-align: center;
+		    		background-color: $darkblue;
+		    		padding: 6px 0 7px 0;
+		    		color: #fff;
+		    		small {
+		    			font-size: 1rem;
+		    		}
+		    		a{
+		    			color: $highlight;
+		    			&.phone{
+		    				font-size: 0.7rem;
+		    			}
+		    		}
+		    		.fa-stack {
+		    			top: 8px;
+		    			right: 7px;
+		    			a{
+		    				color: white;
+		    			}
+		    			&:hover {
+		    				filter: grayscale(100%);
+		    			}
+		    			.fa-square {
+		    				color: #3B5998;
+		    				font-size: 1.5rem !important;
+		    			}
+		    			.fa-facebook {
+		    				font-size: 1rem;
+		    				top: -6px;
+		    				left: 3px;
+		    			}
+		    		}
+		    	}
+
+		    	// ------------------ Callme ------------------ //
+
+		    	
+		    	.callme-container {
+		    		transition: all .2s ease-in-out;
+		    		position: fixed;
+		    		margin-top: 48vh;
+		    		left: 99.1%;
+		    		z-index: 10000;
+		    		width:200px;
+		    		height: 60px;
+		    		padding: 3px;
+		    		border-left: 12px solid $highlight;
+		    		border-radius: 4px 0 0 4px;
+		    		background-color: $darkblue;
+		    		box-shadow: -2px 2px 3px $transparent;
+		    		.icon-container {
+		    			width: 28%;
+		    			height: 54px;
+		    			background-color: $lightblue;
+		    			float: left;
+		    			border-radius: 3px 0 0 3px;
+		    			.icon {
+		    				text-align: center;
+		    				vertical-align: middle;
+		    				line-height: 67px; 
+		    				color: white;
+		    				font-size: 40px;
+		    			}
+		    		}
+		    		.action-container {
+		    			width: 72%;
+		    			height: 54px;
+		    			background-color: $darkestblue;
+		    			float: right;
+		    			border-radius: 0;
+		    			padding-top: 3px;
+		    			.action  {
+		    				text-align: center;
+		    				color: white;
+		    			}
+		    			.field {
+		    				background-color: $lightgrey;
+		    				color: $darkblue;
+		    				padding-left: 3px;
+		    				border: none;
+		    				width: 125px;
+		    				height: 23px;
+		    			}
+		    			input[type=submit]
+		    			{
+		    				display:hidden;
+		    			}
+		    		}
+		    		&:hover {
+		    			margin-left: -186px;
+		    		}
+		    	}
